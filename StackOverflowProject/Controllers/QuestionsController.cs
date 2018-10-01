@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using StackOverflowProject.ViewModels;
 using StackOverflowProject.ServiceLayer;
+using StackOverflowProject.CustomFilters;
 
 namespace StackOverflowProject.Controllers
 {
@@ -32,6 +33,7 @@ namespace StackOverflowProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [UserAuthorizationFilterAttribute]
         public ActionResult AddAnswer(NewAnswerViewModel navm)
         {
             navm.UserID = Convert.ToInt32(Session["CurrentUserID"]);
