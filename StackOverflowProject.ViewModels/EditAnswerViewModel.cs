@@ -14,7 +14,7 @@ namespace StackOverflowProject.ViewModels
         public int AnswerID { get; set; }
 
         [Required]
-        public string AnserText { get; set; }
+        public string AnswerText { get; set; }
 
         [Required]
         public DateTime AnswerDateAndTime { get; set; }
@@ -28,7 +28,7 @@ namespace StackOverflowProject.ViewModels
         [Required]
         public int VotesCount { get; set; }
 
-        [Required]
+        
         public virtual QuestionViewModel Question { get; set; }
 
     }

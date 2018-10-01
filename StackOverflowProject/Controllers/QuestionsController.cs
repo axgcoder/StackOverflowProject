@@ -51,5 +51,22 @@ namespace StackOverflowProject.Controllers
                 return View("View", qvm);
             }
         }
+
+        [HttpPost]
+        public ActionResult EditAnswer(EditAnswerViewModel avm)
+        {
+            if(ModelState.IsValid)
+            {
+                avm.UserID = Convert.ToInt32(Session["CurrentUserID"]);
+                this.asr.UpdateAnswer(avm);
+                return RedirectToAction("View",new { id = avm.QuestionID});
+            }
+            else
+            {
+                ModelState.AddModelError("x", "Invalid Data");
+                return RedirectToAction("View", new { id = avm.QuestionID });
+            }
+            
+        }
     }
 }
