@@ -68,5 +68,34 @@ namespace StackOverflowProject.Controllers
             }
             
         }
+
+        public ActionResult Create()
+        {
+            List<CategoryViewModel> categories = this.cs.GetCategories();
+            ViewBag.Categories = categories;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [UserAuthorizationFilter]
+        public ActionResult Create(NewQuestionViewModel qvm)
+        {
+            if (ModelState.IsValid)
+            {
+                qvm.AnswersCount = 0;
+                qvm.ViewsCount = 0;
+                qvm.ViewsCount = 0;
+                qvm.QuestionDateAndTime = DateTime.Now;
+                qvm.UserID = Convert.ToInt32(Session["CurrentUserID"]);
+                this.qs.InsertQuestion(qvm);
+                return RedirectToAction("Questions","Home");
+            }
+            else
+            {
+                ModelState.AddModelError("x", "Invalid Data");
+                return View();
+            }
+        }
     }
 }
