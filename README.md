@@ -1,6 +1,6 @@
 # StackOverflowProject
 Designed and implemented a question and answer site using ASP.NET MVC. Developed both back-end and front-end. <br/>
-ASP.NET MVC 5| Entity Framework | JQuery |Bootstrap |NET Framework 4.7 |VS 2017 |MS SQL Server |Entity Framewrok
+ASP.NET MVC 5| Entity Framework | JQuery |Bootstrap |NET Framework 4.7 |VS 2017 |MS SQL Server |Entity Framework
 <br/><br/>
 Functionalities <br/>
 -N-tier architecture, showing a clear separation of the layers<br/>
